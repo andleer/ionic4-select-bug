@@ -7,23 +7,23 @@
 </ion-header>
 
 <ion-content padding>
- 
+
   <h2>{{delay1}}ms</h2>
-  <ion-select [(ngModel)]="selectedWidgetId">
+  <ion-select [(ngModel)]="selectedWidgetId" multiple="true">
     <ion-select-option *ngFor="let widget of widgets1" [value]="widget.id">
       {{widget.name}}
     </ion-select-option>
   </ion-select>
 
   <h2>{{delay2}}ms</h2>
-  <ion-select [(ngModel)]="selectedWidgetId">
+  <ion-select [(ngModel)]="selectedWidgetId" multiple="true">
     <ion-select-option *ngFor="let widget of widgets2" [value]="widget.id">
       {{widget.name}}
     </ion-select-option>
   </ion-select>
 
   <h2>{{delay3}}ms</h2>
-  <ion-select [(ngModel)]="selectedWidgetId">
+  <ion-select [(ngModel)]="selectedWidgetId" multiple="true">
     <ion-select-option *ngFor="let widget of widgets3" [value]="widget.id">
       {{widget.name}}
     </ion-select-option>

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { IWidget } from './widget.model';
+import { IonSelect } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,10 @@ import { IWidget } from './widget.model';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
+  @ViewChild('widgetSelect1') widgetSelect1: IonSelect;
+  @ViewChild('widgetSelect2') widgetSelect2: IonSelect;
+  @ViewChild('widgetSelect3') widgetSelect3: IonSelect;
+
   public pseudoApiSource: IWidget[];
 
   public widgets1: IWidget[];

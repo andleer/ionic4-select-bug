@@ -1,6 +1,8 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, NgZone, ApplicationRef, ChangeDetectorRef } from '@angular/core';
 import { IWidget } from './widget.model';
 import { IonSelect } from '@ionic/angular';
+
+import 'zone.js/dist/zone';
 
 @Component({
   selector: 'app-home',
@@ -33,6 +35,8 @@ export class HomePage implements OnInit {
   // never shows. bug!!!
   public readonly delay3 = 200;
 
+  constructor(private ref: ChangeDetectorRef) { }
+
   ngOnInit(): void {
     this.pseudoApiSource = [
       { id: 1, name: 'Widget A', isDefault: false, },
@@ -42,8 +46,6 @@ export class HomePage implements OnInit {
       { id: 5, name: 'Widget E', isDefault: false, },
       { id: 6, name: 'Widget F', isDefault: false, },
     ];
-
-    this.selectedWidgetId = 4;
 
     console.log();
     console.log('widget starting...');
@@ -61,6 +63,16 @@ export class HomePage implements OnInit {
     setTimeout(() => {
       this.widgets3 = this.pseudoApiSource;
       console.log('widget 3 loaded');
+      // this.ref.detectChanges();
+      setTimeout(() => {
+        // setting the value here after a delay of about 50ms or more
+        // after the "api" call completes
+        // causes the selected text to appear correctly.
+        // remove the delay and just set the value at the end here
+        // and the selected text will fail to display.
+        this.selectedWidgetId = 4;
+      }, 100);
     }, this.delay3);
   }
+
 }

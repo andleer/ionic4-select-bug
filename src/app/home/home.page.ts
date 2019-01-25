@@ -35,7 +35,7 @@ export class HomePage implements OnInit {
   // never shows. bug!!!
   public readonly delay3 = 200;
 
-  constructor(private ref: ChangeDetectorRef) { }
+  constructor() { }
 
   ngOnInit(): void {
     this.pseudoApiSource = [
@@ -63,7 +63,6 @@ export class HomePage implements OnInit {
     setTimeout(() => {
       this.widgets3 = this.pseudoApiSource;
       console.log('widget 3 loaded');
-      // this.ref.detectChanges();
       setTimeout(() => {
         // setting the value here after a delay of about 50ms or more
         // after the "api" call completes
